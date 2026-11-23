@@ -1,48 +1,64 @@
-/* 
-╔════════════════════════════════════════════════════════════════════╗
-║                    🎨 INDIELINK CUSTOM THEME CSS                   ║
-║              Complete Customization Template v1.0                  ║
-╚════════════════════════════════════════════════════════════════════╝
+/* ==========================================================================
+   INDIELINK PRO PORTFOLIO — BASE CUSTOM CSS TEMPLATE
+   Theme: MINIMAL (Custom CSS Playground)
+   Layout: Responsive Full-Page Landscape Bento (Sticky Sidebar on Desktop)
 
- HOW TO USE THIS FILE:
-1. Copy the sections you want to customize
-2. Paste into your Custom CSS field in Dashboard > My Showcase > Advanced Tab
-3. Modify colors, sizes, fonts, spacing as you wish
-4. All styles use !important to override defaults
+   HOW TO CUSTOMIZE:
+   Edit the CSS variables inside .theme-page below to re-theme every card.
+   ========================================================================== */
 
-💡 TIP: You can reorder sections by changing grid-template-areas in .theme-container!
+.theme-page {
+  /* ---- Core Palette ---- */
+  --p-bg: #070a12;
+  --p-bg-glow-1: rgba(99, 102, 241, 0.16);
+  --p-bg-glow-2: rgba(6, 182, 212, 0.12);
+  --p-surface: #0f1524;
+  --p-surface-2: #151d31;
+  --p-surface-hover: #1a243d;
+  --p-border: rgba(148, 163, 184, 0.15);
+  --p-border-hover: rgba(129, 140, 248, 0.45);
 
- GRID SECTION ORDER:
-- profile (Profile section with photo, name, bio)
-- video (Profile video embed)
-- links (Link blocks)
-- projects (Project portfolio)
-- contact (Contact form)
-- bottom (QR Code + Booking widget)
-- stats (View/Click statistics)
-- cta (Call-to-action banner)
-*/
+  /* ---- Brand Accents ---- */
+  --p-accent: #6366f1;
+  --p-accent-2: #06b6d4;
+  --p-accent-soft: rgba(99, 102, 241, 0.14);
+  --p-accent-glow: rgba(99, 102, 241, 0.28);
 
-/* ============================================
-   1. GLOBAL STYLES & FONTS
-   ============================================ */
+  /* ---- Typography ---- */
+  --p-text: #f8fafc;
+  --p-text-secondary: #cbd5e1;
+  --p-muted: #94a3b8;
 
-/* Import custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap') !important;
+  /* ---- Radius & Motion ---- */
+  --p-radius-xl: 24px;
+  --p-radius-lg: 18px;
+  --p-radius-md: 12px;
+  --p-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-/* Change entire page background */
-body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  font-family: 'Poppins', sans-serif !important;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--p-text);
+  background-color: var(--p-bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 12% 0%, var(--p-bg-glow-1), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 12%, var(--p-bg-glow-2), transparent 55%),
+    linear-gradient(180deg, #090d18 0%, var(--p-bg) 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Main container - REORDER SECTIONS HERE! */
-.theme-container {
-  max-width: 800px !important;
-  padding: 3rem !important;
-  gap: 3rem !important;
-  
-  /* REORDER SECTIONS: Change the order below! */
+/* ==========================================================================
+   1. MASTER GRID LAYOUT
+   ========================================================================== */
+
+.theme-page .theme-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 4rem;
+  gap: 1.5rem;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas:
     "profile"
     "video"
@@ -51,793 +67,631 @@ body {
     "contact"
     "bottom"
     "stats"
-    "cta" !important;
-    
-  /* EXAMPLE - Video first, then profile:
-  grid-template-areas:
-    "video"
-    "profile"
-    "links"
-    ... !important;
-  */
-}
-
-/* ============================================
-   2. PROFILE SECTION
-   ============================================ */
-
-.theme-profile-section {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 3rem !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Background image at top */
-.theme-background-image {
-  height: 300px !important;
-  border-radius: 20px !important;
-  border: 2px solid #ffffff !important;
-  filter: brightness(1.1) !important;
-}
-
-/* Profile picture */
-.theme-profile-image {
-  width: 160px !important;
-  height: 160px !important;
-  border: 5px solid #ffd700 !important;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5) !important;
+    "cta";
 }
 
-/* Verified badge */
-.theme-verified-badge {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  border: 4px solid #ffffff !important;
-  width: 40px !important;
-  height: 40px !important;
-}
-
-/* Username/Title */
-.theme-username {
-  font-size: 3.5rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) !important;
-  letter-spacing: -1px !important;
-}
+/* ==========================================================================
+   2. PROFILE SIDEBAR CARD
+   ========================================================================== */
 
-/* About/Bio text */
-.theme-about-text {
-  font-size: 1.25rem !important;
-  color: #e0e0e0 !important;
-  line-height: 2 !important;
-  max-width: 600px !important;
-  margin: 0 auto 2rem auto !important;
+.theme-page .theme-profile-section {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-xl);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.3s var(--p-ease), box-shadow 0.3s var(--p-ease);
 }
 
-/* Badges */
-.theme-badge {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53) !important;
-  color: #ffffff !important;
-  padding: 0.75rem 1.5rem !important;
-  border-radius: 30px !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4) !important;
+.theme-page .theme-profile-section:hover {
+  border-color: var(--p-border-hover);
 }
 
-/* Social icon containers */
-.theme-social-icon {
-  width: 60px !important;
-  height: 60px !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 16px !important;
-  backdrop-filter: blur(10px) !important;
+.theme-page .theme-background-wrapper {
+  width: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--p-border);
 }
 
-.theme-social-icon:hover {
-  background: #ffd700 !important;
-  transform: translateY(-5px) rotate(5deg) !important;
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5) !important;
+.theme-page .theme-background-image {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.6s var(--p-ease);
 }
 
-.theme-social-icon svg {
-  width: 28px !important;
-  height: 28px !important;
-  color: #ffffff !important;
+.theme-page .theme-profile-section:hover .theme-background-image {
+  transform: scale(1.03);
 }
 
-.theme-social-icon:hover svg {
-  color: #1e3c72 !important;
+.theme-page .theme-profile-header {
+  gap: 1rem;
 }
 
-/* ============================================
-   3. PROFILE VIDEO SECTION
-   ============================================ */
-
-.theme-video-section {
-  background: #000000 !important;
-  border: 3px solid #ffd700 !important;
-  border-radius: 24px !important;
-  overflow: hidden !important;
-  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3) !important;
-}
-
-.theme-video-header {
-  background: linear-gradient(135deg, #667eea, #764ba2) !important;
-  padding: 2rem !important;
-  border-bottom: 3px solid #ffd700 !important;
+.theme-page .theme-profile-image-wrapper {
+  margin-top: -54px;
+  z-index: 5;
 }
 
-.theme-video-title {
-  font-size: 2rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  text-align: center !important;
+.theme-page .theme-profile-image {
+  width: 112px;
+  height: 112px;
+  border-radius: 26px;
+  border: 4px solid var(--p-surface);
+  box-shadow:
+    0 0 0 2px var(--p-accent),
+    0 12px 28px rgba(0, 0, 0, 0.45);
+  background: var(--p-surface-2);
 }
 
-.theme-video-container {
-  background: #000000 !important;
-  /* Video iframe fills this container automatically */
+.theme-page .theme-verified-badge {
+  width: 30px;
+  height: 30px;
+  bottom: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  border: 3px solid var(--p-surface);
+  box-shadow: 0 4px 12px var(--p-accent-glow);
 }
 
-.theme-video-iframe {
-  border: none !important;
+.theme-page .theme-username {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.65rem;
+  color: var(--p-text);
+  background: linear-gradient(100deg, #ffffff 30%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Video error state */
-.theme-video-error {
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+.theme-page .theme-about-text {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--p-text-secondary);
+  margin-bottom: 1.25rem;
 }
 
-.theme-video-error-title {
-  color: #ffd700 !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
+.theme-page .theme-badges-container {
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
-.theme-video-error-message {
-  color: #e0e0e0 !important;
-  font-size: 1rem !important;
+.theme-page .theme-badge {
+  padding: 0.38rem 0.85rem;
+  background: var(--p-accent-soft);
+  color: #c7d2fe;
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
-
-/* ============================================
-   4. LINK BLOCKS SECTION
-   ============================================ */
 
-.theme-link-block {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 20px !important;
-  padding: 2rem !important;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+.theme-page .theme-social-icons {
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--p-border);
 }
 
-.theme-link-block:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
-  transform: translateY(-10px) scale(1.02) !important;
-  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5) !important;
-  border-color: #ffd700 !important;
+.theme-page .theme-social-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--p-surface-2);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-md);
+  transition: all 0.25s var(--p-ease);
 }
 
-/* Link icon container */
-.theme-link-icon {
-  width: 70px !important;
-  height: 70px !important;
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-radius: 16px !important;
-  border: 2px solid #ffffff !important;
+.theme-page .theme-social-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--p-muted);
+  transition: color 0.25s var(--p-ease);
 }
 
-.theme-link-icon svg {
-  width: 36px !important;
-  height: 36px !important;
-  color: #ffffff !important;
+.theme-page .theme-social-icon:hover {
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--p-accent-glow);
 }
 
-/* Link title */
-.theme-link-title {
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+.theme-page .theme-social-icon:hover svg {
+  color: #ffffff;
 }
 
-/* Link description */
-.theme-link-description {
-  font-size: 1rem !important;
-  color: #e0e0e0 !important;
-}
+/* ==========================================================================
+   3. VIDEO SHOWCASE
+   ========================================================================== */
 
-/* Link arrow button */
-.theme-link-arrow {
-  width: 50px !important;
-  height: 50px !important;
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-radius: 12px !important;
-  border: 2px solid #ffffff !important;
+.theme-page .theme-video-section {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 
-.theme-link-block:hover .theme-link-arrow {
-  background: #ffd700 !important;
-  transform: rotate(45deg) !important;
+.theme-page .theme-video-container {
+  background: #020617;
 }
 
-.theme-link-arrow svg {
-  color: #ffffff !important;
-}
+/* ==========================================================================
+   4. LINK BLOCKS (2-Column Bento on Tablet & Desktop)
+   ========================================================================== */
 
-.theme-link-block:hover .theme-link-arrow svg {
-  color: #1e3c72 !important;
+.theme-page .theme-links-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
 }
 
-/* ============================================
-    5. PROJECTS SECTION
-   ============================================ */
-
-.theme-projects-section {
-  padding: 2rem 0 !important;
+.theme-page .theme-link-block {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-lg);
+  padding: 1.15rem 1.25rem;
+  text-align: left;
+  transition: all 0.28s var(--p-ease);
 }
 
-/* Section title */
-.theme-section-title {
-  font-size: 3rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
-  text-align: center !important;
-  margin-bottom: 2rem !important;
+.theme-page .theme-link-block:hover {
+  background: var(--p-surface-hover);
+  border-color: var(--p-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
 }
 
-.theme-section-icon svg {
-  width: 40px !important;
-  height: 40px !important;
-  color: #ffd700 !important;
+.theme-page .theme-link-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--p-accent-soft);
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  border-radius: var(--p-radius-md);
 }
 
-/* Projects grid */
-.theme-projects-grid {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-  gap: 2rem !important;
+.theme-page .theme-link-icon svg {
+  width: 22px;
+  height: 22px;
+  color: #a5b4fc;
 }
 
-/* Project card */
-.theme-project-card {
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  overflow: hidden !important;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
-  transition: all 0.4s ease !important;
+.theme-page .theme-link-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--p-text);
 }
 
-.theme-project-card:hover {
-  transform: translateY(-15px) rotate(-2deg) !important;
-  box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4) !important;
-  border-color: #ffd700 !important;
+.theme-page .theme-link-description {
+  font-size: 0.82rem;
+  color: var(--p-muted);
+  line-height: 1.45;
 }
 
-/* Project image */
-.theme-project-image {
-  height: 250px !important;
-  object-fit: cover !important;
-  filter: brightness(0.9) !important;
-  transition: all 0.4s ease !important;
+.theme-page .theme-link-arrow {
+  width: 36px;
+  height: 36px;
+  background: var(--p-surface-2);
+  border: 1px solid var(--p-border);
+  border-radius: 10px;
+  transition: all 0.25s var(--p-ease);
 }
 
-.theme-project-card:hover .theme-project-image {
-  filter: brightness(1.1) !important;
-  transform: scale(1.1) !important;
+.theme-page .theme-link-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: var(--p-muted);
 }
 
-/* Project content */
-.theme-project-content {
-  padding: 2rem !important;
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+.theme-page .theme-link-block:hover .theme-link-arrow {
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  border-color: transparent;
 }
 
-/* Project title */
-.theme-project-title {
-  font-size: 2rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  margin-bottom: 1rem !important;
+.theme-page .theme-link-block:hover .theme-link-arrow svg {
+  color: #ffffff;
 }
 
-/* Project description */
-.theme-project-description {
-  font-size: 1rem !important;
-  color: #e0e0e0 !important;
-  line-height: 1.8 !important;
-}
+/* ==========================================================================
+   5. PROJECTS PORTFOLIO GRID
+   ========================================================================== */
 
-/* Project buttons */
-.theme-project-button-primary {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: #1e3c72 !important;
-  padding: 1rem 2rem !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4) !important;
+.theme-page .theme-projects-section {
+  gap: 1.25rem;
 }
 
-.theme-project-button-primary:hover {
-  background: linear-gradient(135deg, #ffed4e, #ffd700) !important;
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6) !important;
+.theme-page .theme-section-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--p-text);
 }
 
-.theme-project-button-secondary {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff !important;
-  padding: 1rem 2rem !important;
-  border-radius: 12px !important;
-  font-weight: 600 !important;
-  border: 2px solid #ffffff !important;
-  backdrop-filter: blur(10px) !important;
+.theme-page .theme-section-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--p-accent-2);
 }
 
-.theme-project-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-3px) !important;
+.theme-page .theme-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
-/* ============================================
-   6. CONTACT FORM SECTION
-   ============================================ */
-
-.theme-contact-section {
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 3rem !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+.theme-page .theme-project-card {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-xl);
+  overflow: hidden;
+  transition: all 0.3s var(--p-ease);
 }
 
-/* Form header */
-.theme-form-title {
-  font-size: 2.5rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) !important;
-  margin-bottom: 1rem !important;
+.theme-page .theme-project-card:hover {
+  border-color: rgba(6, 182, 212, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.4);
 }
 
-.theme-form-description {
-  font-size: 1.125rem !important;
-  color: #e0e0e0 !important;
+.theme-page .theme-project-image {
+  height: 210px;
+  border-bottom: 1px solid var(--p-border);
+  transition: transform 0.5s var(--p-ease);
 }
 
-/* Form alerts */
-.theme-form-alert-success {
-  background: linear-gradient(135deg, #10b981, #059669) !important;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 12px !important;
-  padding: 1.5rem !important;
-  font-weight: 600 !important;
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+.theme-page .theme-project-card:hover .theme-project-image {
+  transform: scale(1.03);
 }
 
-.theme-form-alert-error {
-  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 12px !important;
-  padding: 1.5rem !important;
-  font-weight: 600 !important;
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4) !important;
+.theme-page .theme-project-content {
+  padding: 1.35rem;
+  gap: 0.75rem;
 }
 
-/* Form labels */
-.theme-form-label {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+.theme-page .theme-project-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--p-text);
+  letter-spacing: -0.015em;
 }
 
-/* Form inputs */
-.theme-form-input,
-.theme-form-textarea,
-.theme-form-select {
-  padding: 1rem 1.5rem !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 12px !important;
-  font-size: 1.1rem !important;
-  color: #ffffff !important;
-  backdrop-filter: blur(10px) !important;
-  transition: all 0.3s ease !important;
+.theme-page .theme-project-description {
+  font-size: 0.88rem;
+  color: var(--p-muted);
+  line-height: 1.6;
 }
 
-.theme-form-input::placeholder,
-.theme-form-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
+.theme-page .theme-project-button-primary {
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 8px 18px var(--p-accent-glow);
 }
 
-.theme-form-input:focus,
-.theme-form-textarea:focus,
-.theme-form-select:focus {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: #ffd700 !important;
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.3) !important;
-  transform: scale(1.02) !important;
+.theme-page .theme-project-button-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
-/* Submit button */
-.theme-form-submit {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: #1e3c72 !important;
-  padding: 1.25rem 2rem !important;
-  border-radius: 12px !important;
-  font-weight: 800 !important;
-  font-size: 1.25rem !important;
-  border: 3px solid #ffffff !important;
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5) !important;
-  transition: all 0.3s ease !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+.theme-page .theme-project-button-secondary {
+  background: var(--p-surface-2);
+  color: var(--p-text-secondary);
+  border: 1px solid var(--p-border);
+  border-radius: 10px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
-.theme-form-submit:hover:not(:disabled) {
-  background: linear-gradient(135deg, #ffed4e, #ffd700) !important;
-  transform: translateY(-5px) scale(1.05) !important;
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7) !important;
+.theme-page .theme-project-button-secondary:hover {
+  background: var(--p-surface-hover);
+  color: #ffffff;
+  border-color: var(--p-border-hover);
 }
 
-/* ============================================
-   7. QR CODE & BOOKING SECTION
-   ============================================ */
+/* ==========================================================================
+   6. CONTACT FORM
+   ========================================================================== */
 
-.theme-bottom-section {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-  gap: 2rem !important;
+.theme-page .theme-contact-section {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-xl);
+  padding: 1.75rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
 }
 
-/* QR Card */
-.theme-qr-card {
-  background: linear-gradient(135deg, #667eea, #764ba2) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 2.5rem !important;
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4) !important;
+.theme-page .theme-form-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--p-text);
 }
 
-.theme-qr-title {
-  font-size: 2rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3) !important;
+.theme-page .theme-form-title svg {
+  color: var(--p-accent);
 }
 
-.theme-qr-subtitle {
-  font-size: 1.125rem !important;
-  color: #e0e0e0 !important;
+.theme-page .theme-form-description {
+  font-size: 0.9rem;
+  color: var(--p-muted);
+  line-height: 1.6;
 }
 
-.theme-qr-image-wrapper {
-  background: #ffffff !important;
-  border: 4px solid #ffd700 !important;
-  border-radius: 20px !important;
-  padding: 1.5rem !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+.theme-page .theme-form-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--p-text-secondary);
 }
 
-.theme-qr-image {
-  width: 220px !important;
-  height: 220px !important;
-  border-radius: 12px !important;
+.theme-page .theme-form-input,
+.theme-page .theme-form-textarea,
+.theme-page .theme-form-select {
+  background: var(--p-bg);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-md);
+  color: var(--p-text);
+  font-size: 0.92rem;
+  padding: 0.8rem 1rem;
 }
 
-.theme-qr-download-button {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: #1e3c72 !important;
-  padding: 1rem 2rem !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4) !important;
+.theme-page .theme-form-input::placeholder,
+.theme-page .theme-form-textarea::placeholder {
+  color: var(--p-muted);
+  opacity: 0.65;
 }
 
-.theme-qr-download-button:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6) !important;
+.theme-page .theme-form-input:focus,
+.theme-page .theme-form-textarea:focus,
+.theme-page .theme-form-select:focus {
+  border-color: var(--p-accent);
+  box-shadow: 0 0 0 3px var(--p-accent-soft);
 }
 
-/* Booking Card */
-.theme-booking-card {
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 2.5rem !important;
-  box-shadow: 0 15px 40px rgba(30, 60, 114, 0.4) !important;
+.theme-page .theme-form-submit {
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  color: #ffffff;
+  border-radius: var(--p-radius-md);
+  padding: 0.95rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 24px var(--p-accent-glow);
 }
 
-.theme-booking-icon {
-  width: 60px !important;
-  height: 60px !important;
-  background: rgba(255, 215, 0, 0.2) !important;
-  border: 2px solid #ffd700 !important;
-  border-radius: 16px !important;
+.theme-page .theme-form-submit:hover:not(:disabled) {
+  opacity: 0.94;
+  transform: translateY(-2px);
 }
 
-.theme-booking-icon svg {
-  width: 32px !important;
-  height: 32px !important;
-  color: #ffd700 !important;
+.theme-page .theme-form-alert-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
 }
 
-.theme-booking-title {
-  font-size: 2rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
+.theme-page .theme-form-alert-error {
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  color: #fda4af;
 }
 
-.theme-booking-description {
-  font-size: 1.125rem !important;
-  color: #e0e0e0 !important;
-}
+/* ==========================================================================
+   7. QR CODE, BOOKING, INDIELINK STATS & CTA CARDS (MATCHING DARK SURFACE)
+   ========================================================================== */
 
-.theme-booking-feature {
-  font-size: 1rem !important;
-  color: #ffffff !important;
-  font-weight: 500 !important;
+.theme-page .theme-bottom-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
-.theme-booking-feature svg {
-  color: #ffd700 !important;
-  width: 20px !important;
-  height: 20px !important;
+.theme-page .theme-qr-card,
+.theme-page .theme-booking-card,
+.theme-page .theme-stats-section,
+.theme-page .theme-cta-section {
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-xl);
+  padding: 1.75rem;
+  color: var(--p-text);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.3s var(--p-ease), transform 0.3s var(--p-ease);
 }
 
-.theme-booking-button-primary {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: #1e3c72 !important;
-  padding: 1rem 2rem !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-  border: 2px solid #ffffff !important;
+.theme-page .theme-qr-card:hover,
+.theme-page .theme-booking-card:hover,
+.theme-page .theme-stats-section:hover,
+.theme-page .theme-cta-section:hover {
+  border-color: var(--p-border-hover);
 }
 
-.theme-booking-button-primary:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5) !important;
+.theme-page .theme-qr-title,
+.theme-page .theme-booking-title,
+.theme-page .theme-stats-title,
+.theme-page .theme-cta-title {
+  color: var(--p-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
 }
 
-.theme-booking-button-secondary {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  backdrop-filter: blur(10px) !important;
+.theme-page .theme-qr-title svg,
+.theme-page .theme-stats-title svg,
+.theme-page .theme-cta-title svg {
+  color: var(--p-accent-2);
 }
 
-.theme-booking-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
+.theme-page .theme-qr-subtitle,
+.theme-page .theme-booking-description,
+.theme-page .theme-booking-feature,
+.theme-page .theme-stat-label,
+.theme-page .theme-cta-description {
+  color: var(--p-muted);
+  font-size: 0.88rem;
 }
 
-/* ============================================
-   8. STATS SECTION
-   ============================================ */
-
-.theme-stats-section {
-  background: linear-gradient(135deg, #667eea, #764ba2) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 3rem !important;
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4) !important;
+/* Keep crisp white inner frame so phone cameras scan QR reliably */
+.theme-page .theme-qr-image-wrapper {
+  background: #ffffff;
+  border: 4px solid var(--p-surface-2);
+  border-radius: 16px;
+  padding: 0.75rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
-.theme-stats-title {
-  font-size: 2.5rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) !important;
+.theme-page .theme-booking-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--p-accent-soft);
+  border: 1px solid rgba(129, 140, 248, 0.28);
+  border-radius: var(--p-radius-md);
+  margin: 0 auto;
 }
 
-.theme-stats-container {
-  gap: 4rem !important;
+.theme-page .theme-booking-icon svg,
+.theme-page .theme-booking-feature svg {
+  color: var(--p-accent-2);
 }
 
-.theme-stat-number {
-  font-size: 4rem !important;
-  font-weight: 900 !important;
-  color: #ffd700 !important;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
-  letter-spacing: -2px !important;
+.theme-page .theme-qr-download-button,
+.theme-page .theme-booking-button-primary,
+.theme-page .theme-cta-button {
+  background: linear-gradient(135deg, var(--p-accent), var(--p-accent-2));
+  color: #ffffff;
+  border-radius: var(--p-radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.8rem 1.4rem;
+  box-shadow: 0 8px 20px var(--p-accent-glow);
 }
 
-.theme-stat-label {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
+.theme-page .theme-qr-download-button:hover,
+.theme-page .theme-booking-button-primary:hover,
+.theme-page .theme-cta-button:hover {
+  opacity: 0.93;
+  transform: translateY(-2px);
 }
-
-/* ============================================
-    9. CTA (CALL-TO-ACTION) SECTION
-   ============================================ */
 
-.theme-cta-section {
-  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 24px !important;
-  padding: 3rem !important;
-  box-shadow: 0 20px 60px rgba(30, 60, 114, 0.4) !important;
+.theme-page .theme-booking-button-secondary {
+  background: var(--p-surface-2);
+  color: var(--p-text-secondary);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.theme-cta-title {
-  font-size: 2rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3) !important;
+.theme-page .theme-booking-button-secondary:hover {
+  background: var(--p-surface-hover);
+  color: #ffffff;
+  border-color: var(--p-border-hover);
 }
 
-.theme-cta-description {
-  font-size: 1.125rem !important;
-  color: #e0e0e0 !important;
+/* Elevated Stat Tiles inside IndieLink Stats */
+.theme-page .theme-stats-container {
+  gap: 1.25rem;
 }
 
-.theme-cta-button {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: #1e3c72 !important;
-  padding: 1rem 2.5rem !important;
-  border-radius: 12px !important;
-  font-weight: 800 !important;
-  font-size: 1.25rem !important;
-  border: 3px solid #ffffff !important;
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+.theme-page .theme-stat-item {
+  flex: 1 1 160px;
+  background: var(--p-surface-2);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius-lg);
+  padding: 1.25rem 1.5rem;
 }
 
-.theme-cta-button:hover {
-  transform: translateY(-5px) scale(1.05) !important;
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7) !important;
+.theme-page .theme-stat-number {
+  font-size: 2.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--p-accent-2);
+  background: linear-gradient(135deg, #ffffff 15%, var(--p-accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ============================================
-   10. RESPONSIVE OVERRIDES
-   ============================================ */
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS (Tablet, Desktop Landscape, Ultrawide)
+   ========================================================================== */
 
-@media (max-width: 768px) {
-  .theme-container {
-    padding: 1.5rem !important;
-    gap: 2rem !important;
+@media (min-width: 768px) {
+  .theme-page .theme-container {
+    padding: 2rem 1.75rem 4.5rem;
+    gap: 1.75rem;
   }
-  
-  .theme-username {
-    font-size: 2.5rem !important;
+
+  .theme-page .theme-links-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  .theme-section-title {
-    font-size: 2rem !important;
+
+  .theme-page .theme-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  .theme-stat-number {
-    font-size: 2.5rem !important;
-  }
-  
-  .theme-profile-image {
-    width: 120px !important;
-    height: 120px !important;
+
+  .theme-page .theme-bottom-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
-/* ============================================
-   11. ANIMATION EXAMPLES
-   ============================================ */
+@media (min-width: 1024px) {
+  .theme-page .theme-container {
+    padding: 2.75rem 2.25rem 5rem;
+    gap: 2rem;
+    grid-template-columns: 360px minmax(0, 1fr);
+    grid-template-areas:
+      "profile video"
+      "profile links"
+      "profile projects"
+      "profile contact"
+      "profile bottom"
+      "profile stats"
+      "profile cta";
+    align-items: start;
+  }
 
-/* Pulsing glow effect on profile image */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+  .theme-page .theme-profile-section {
+    position: sticky;
+    top: 2rem;
+    text-align: left;
+    padding: 1.75rem;
   }
-  50% {
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8) !important;
-  }
-}
 
-.theme-profile-image {
-  animation: pulse-glow 2s infinite !important;
-}
+  .theme-page .theme-profile-header {
+    align-items: flex-start;
+  }
 
-/* Floating animation for badges */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) !important;
+  .theme-page .theme-profile-image-wrapper {
+    margin-left: 0.5rem;
   }
-  50% {
-    transform: translateY(-10px) !important;
-  }
-}
 
-.theme-badge {
-  animation: float 3s ease-in-out infinite !important;
-}
-
-/* Gradient animation for background */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50% !important;
-  }
-  50% {
-    background-position: 100% 50% !important;
-  }
-  100% {
-    background-position: 0% 50% !important;
+  .theme-page .theme-badges-container,
+  .theme-page .theme-social-icons {
+    justify-content: flex-start;
   }
 }
 
-body {
-  background-size: 200% 200% !important;
-  animation: gradient-shift 15s ease infinite !important;
+@media (min-width: 1440px) {
+  .theme-page .theme-container {
+    max-width: 1420px;
+    grid-template-columns: 400px minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .theme-page .theme-username {
+    font-size: 2.15rem;
+  }
 }
-
-/* ============================================
-   12. ADVANCED CUSTOMIZATION TIPS
-   ============================================ */
-
-/*
- REORDERING SECTIONS:
-Change the grid-template-areas in .theme-container to reorder sections!
-
-Example - Put video at the top:
-.theme-container {
-  grid-template-areas:
-    "video"
-    "profile"
-    "links"
-    ... !important;
-}
-
-COLOR SCHEMES:
-- Primary: #667eea, #764ba2 (Purple gradient)
-- Accent: #ffd700 (Gold)
-- Background: #1e3c72, #2a5298 (Dark blue)
-- Text: #ffffff (White)
-
-GLASSMORPHISM EFFECT:
-.theme-any-section {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
- NEON GLOW:
-.theme-link-block:hover {
-  box-shadow: 
-    0 0 20px #ffd700,
-    0 0 40px #ffd700,
-    0 0 60px #ffd700 !important;
-}
-
- CUSTOM SHAPES:
-.theme-profile-image {
-  border-radius: 0 !important; /* Square */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) !important; /* Diamond */
-}
-
-TEXT EFFECTS:
-.theme-username {
-  background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-}
-*/
-
-/* ============================================
-   END OF CUSTOM CSS TEMPLATE
-   Happy customizing! - from @SailikSarkar
-   ============================================ */
