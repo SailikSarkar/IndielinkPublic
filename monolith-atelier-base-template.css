@@ -1,0 +1,807 @@
+/* ==========================================================================
+   INDIELINK TEMPLATE 01 — MONOLITH ATELIER
+   Aesthetic: Matte Carbon, Warm Ivory & Burnished Brass (Zero Generic Blue)
+   Theme: MINIMAL (Custom CSS Playground)
+   100% Sanitizer-Safe · Responsive Mobile to Ultrawide
+
+   HOW TO CUSTOMIZE:
+   Edit the variables inside .theme-page to shift the mood in seconds.
+   ========================================================================== */
+
+.theme-page {
+  /* ---- Core Monochrome Palette ---- */
+  --bg: #0b0b0a;
+  --surface: #131311;
+  --surface-2: #1b1b18;
+  --surface-3: #22221e;
+
+  /* ---- Hairline Borders & Top-Light ---- */
+  --line: #242420;
+  --line-hover: #3e3c35;
+  --top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+
+  /* ---- Typography Ink ---- */
+  --ink: #f3f1ec;
+  --ink-2: #b8b4a9;
+  --muted: #78746b;
+
+  /* ---- Restrained Editorial Accents ---- */
+  --brass: #d6a76c;
+  --brass-soft: rgba(214, 167, 108, 0.12);
+  --brass-line: rgba(214, 167, 108, 0.34);
+  --sage: #7ec89b;
+  --sage-soft: rgba(126, 200, 155, 0.12);
+  --sage-line: rgba(126, 200, 155, 0.3);
+
+  /* ---- Motion & Geometry ---- */
+  --r-xl: 22px;
+  --r-lg: 16px;
+  --r-md: 11px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  width: 100%;
+  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 70% 35% at 50% 0%, rgba(214, 167, 108, 0.06), transparent 70%),
+    linear-gradient(180deg, #0f0f0d 0%, var(--bg) 35%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.theme-page .theme-container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 1.75rem 1.25rem 5rem;
+  gap: 2.5rem;
+  background: transparent;
+}
+
+/* ==========================================================================
+   1. STUDIO HERO PROFILE CARD
+   ========================================================================== */
+
+.theme-page .theme-profile-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: 1.75rem 1.5rem 2rem;
+  box-shadow: var(--top-highlight), 0 24px 60px rgba(0, 0, 0, 0.55);
+  transition: border-color 0.35s var(--ease);
+}
+
+.theme-page .theme-profile-section:hover {
+  border-color: var(--line-hover);
+}
+
+.theme-page .theme-background-wrapper {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.theme-page .theme-background-image {
+  height: 210px;
+  border-radius: 14px;
+  filter: contrast(1.03) saturate(0.92);
+  transition: transform 0.8s var(--ease), filter 0.6s var(--ease);
+}
+
+.theme-page .theme-profile-section:hover .theme-background-image {
+  transform: scale(1.025);
+  filter: contrast(1.05) saturate(1.04);
+}
+
+.theme-page .theme-profile-header {
+  gap: 1.5rem;
+}
+
+.theme-page .theme-profile-image-wrapper {
+  flex-shrink: 0;
+}
+
+.theme-page .theme-profile-image {
+  width: 118px;
+  height: 118px;
+  border-radius: 26px;
+  border: 2px solid var(--line-hover);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.theme-page .theme-profile-image-wrapper:hover .theme-profile-image {
+  transform: scale(1.03);
+  border-color: var(--brass);
+}
+
+.theme-page .theme-verified-badge {
+  width: 30px;
+  height: 30px;
+  bottom: -4px;
+  right: -4px;
+  background: var(--brass);
+  border: 3px solid var(--surface);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.theme-page .theme-verified-badge svg {
+  color: #0b0b0a;
+  fill: #0b0b0a;
+}
+
+/* Pulsing Availability Indicator */
+.theme-page .theme-availability-pill {
+  background: var(--sage-soft);
+  color: var(--sage);
+  border: 1px solid var(--sage-line);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.theme-page .theme-availability-pill::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sage);
+  margin-right: 0.25rem;
+  animation: monolithPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes monolithPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(126, 200, 155, 0.55);
+  }
+  50% {
+    opacity: 0.65;
+    box-shadow: 0 0 0 6px rgba(126, 200, 155, 0);
+  }
+}
+
+.theme-page .theme-username {
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.55rem;
+}
+
+.theme-page .theme-headline {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin-bottom: 0.65rem;
+}
+
+.theme-page .theme-meta-row {
+  color: var(--muted);
+  font-size: 0.84rem;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.theme-page .theme-meta-pill svg {
+  color: var(--brass);
+}
+
+.theme-page .theme-badges-container {
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.theme-page .theme-badge {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.theme-page .theme-badge:hover {
+  border-color: var(--brass-line);
+  color: var(--brass);
+}
+
+/* High-Contrast Ivory Primary CTA */
+.theme-page .theme-resume-button {
+  background: var(--ink);
+  color: #0b0b0a;
+  border: 1px solid var(--ink);
+  border-radius: var(--r-md);
+  padding: 0.68rem 1.35rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: transform 0.22s var(--ease), background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.theme-page .theme-resume-button:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.theme-page .theme-resume-button:active {
+  transform: scale(0.98);
+}
+
+.theme-page .theme-social-icons {
+  gap: 0.6rem;
+}
+
+.theme-page .theme-social-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--top-highlight);
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.theme-page .theme-social-icon svg {
+  width: 17px;
+  height: 17px;
+  color: var(--ink-2);
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.theme-page .theme-social-icon:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-3px);
+}
+
+.theme-page .theme-social-icon:hover svg {
+  color: #0b0b0a;
+  transform: scale(1.08);
+}
+
+.theme-page .theme-social-icon:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   2. EDITORIAL SECTION HEADERS & BASE SURFACES
+   ========================================================================== */
+
+.theme-page .theme-section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.theme-page .theme-section-icon svg {
+  width: 19px;
+  height: 19px;
+  color: var(--brass);
+}
+
+.theme-page .theme-about-section,
+.theme-page .theme-video-section,
+.theme-page .theme-proof-section,
+.theme-page .theme-contact-section,
+.theme-page .theme-qr-card,
+.theme-page .theme-booking-card,
+.theme-page .theme-stats-section,
+.theme-page .theme-cta-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--top-highlight), 0 16px 40px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.3s var(--ease);
+}
+
+.theme-page .theme-about-section:hover,
+.theme-page .theme-proof-section:hover,
+.theme-page .theme-contact-section:hover,
+.theme-page .theme-qr-card:hover,
+.theme-page .theme-booking-card:hover,
+.theme-page .theme-stats-section:hover,
+.theme-page .theme-cta-section:hover {
+  border-color: var(--line-hover);
+}
+
+.theme-page .theme-about-text {
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   3. SKILLS & STACK (Centered Responsive Grid)
+   ========================================================================== */
+
+.theme-page .theme-skill-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.35rem;
+  box-shadow: var(--top-highlight);
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.theme-page .theme-skill-card:hover {
+  background: var(--surface-2);
+  border-color: var(--line-hover);
+  transform: translateY(-3px);
+}
+
+.theme-page .theme-skill-category {
+  color: var(--brass);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.theme-page .theme-skill-chip {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  border-radius: 8px;
+  padding: 0.3rem 0.68rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.theme-page .theme-skill-chip:hover {
+  border-color: var(--brass-line);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   4. CAREER JOURNEY TREE (Tactile Node Halo + Horizontal Glide)
+   ========================================================================== */
+
+.theme-page .theme-career-tree {
+  padding-left: 2.5rem;
+  gap: 1.5rem;
+}
+
+.theme-page .theme-career-tree::before {
+  left: 15px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--brass) 0%, var(--line-hover) 65%, transparent 100%);
+}
+
+.theme-page .theme-career-node {
+  left: -2.5rem;
+  top: 1.25rem;
+  width: 32px;
+  height: 32px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--brass-line);
+  box-shadow: 0 0 0 4px var(--bg);
+  transition: transform 0.3s var(--ease), background-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.theme-page .theme-career-node svg {
+  color: var(--brass);
+}
+
+.theme-page .theme-career-item:hover .theme-career-node {
+  transform: scale(1.12);
+  background: var(--brass);
+  border-color: var(--brass);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 8px var(--brass-soft);
+}
+
+.theme-page .theme-career-item:hover .theme-career-node svg {
+  color: #0b0b0a;
+}
+
+.theme-page .theme-career-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--top-highlight);
+  transition: transform 0.32s var(--ease), border-color 0.32s var(--ease), background-color 0.32s var(--ease);
+}
+
+.theme-page .theme-career-item:hover .theme-career-card {
+  background: var(--surface-2);
+  border-color: var(--line-hover);
+  transform: translateX(5px);
+}
+
+.theme-page .theme-career-date {
+  color: var(--brass);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-page .theme-career-type {
+  background: var(--surface-2);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+}
+
+.theme-page .theme-career-current {
+  background: var(--sage-soft);
+  color: var(--sage);
+  border: 1px solid var(--sage-line);
+}
+
+.theme-page .theme-career-title {
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.theme-page .theme-career-org-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--brass-line);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.theme-page .theme-career-org-link:hover {
+  color: var(--brass);
+  border-color: var(--brass);
+}
+
+.theme-page .theme-career-org {
+  color: var(--ink-2);
+}
+
+.theme-page .theme-career-loc,
+.theme-page .theme-career-desc {
+  color: var(--muted);
+}
+
+.theme-page .theme-career-mode {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+/* ==========================================================================
+   5. FEATURED PROJECTS (Image Reveal + Tactile Actions)
+   ========================================================================== */
+
+.theme-page .theme-project-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--top-highlight), 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.theme-page .theme-project-card:hover {
+  border-color: var(--line-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--top-highlight), 0 24px 48px rgba(0, 0, 0, 0.55);
+}
+
+.theme-page .theme-project-image {
+  height: 215px;
+  border-bottom: 1px solid var(--line);
+  filter: saturate(0.84) contrast(1.03);
+  transition: transform 0.65s var(--ease), filter 0.5s var(--ease);
+}
+
+.theme-page .theme-project-card:hover .theme-project-image {
+  transform: scale(1.045);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.theme-page .theme-project-title {
+  color: var(--ink);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.theme-page .theme-project-status {
+  background: var(--brass-soft);
+  color: var(--brass);
+  border: 1px solid var(--brass-line);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theme-page .theme-project-description {
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   6. SERVICES, LINK BLOCKS & TESTIMONIALS
+   ========================================================================== */
+
+.theme-page .theme-service-card,
+.theme-page .theme-testimonial-card,
+.theme-page .theme-link-block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--top-highlight);
+  color: var(--ink);
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.theme-page .theme-service-card:hover,
+.theme-page .theme-testimonial-card:hover,
+.theme-page .theme-link-block:hover {
+  background: var(--surface-2);
+  border-color: var(--line-hover);
+  transform: translateY(-3px);
+}
+
+.theme-page .theme-link-block:active {
+  transform: scale(0.99);
+}
+
+.theme-page .theme-service-featured {
+  border-color: var(--brass-line);
+  background: linear-gradient(165deg, rgba(214, 167, 108, 0.09) 0%, var(--surface) 60%);
+}
+
+.theme-page .theme-service-title,
+.theme-page .theme-link-title,
+.theme-page .theme-testimonial-author,
+.theme-page .theme-form-title,
+.theme-page .theme-qr-title,
+.theme-page .theme-booking-title,
+.theme-page .theme-stats-title,
+.theme-page .theme-cta-title {
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.theme-page .theme-service-desc,
+.theme-page .theme-service-delivery,
+.theme-page .theme-link-description,
+.theme-page .theme-testimonial-role,
+.theme-page .theme-form-description,
+.theme-page .theme-form-label,
+.theme-page .theme-qr-subtitle,
+.theme-page .theme-booking-description,
+.theme-page .theme-booking-feature,
+.theme-page .theme-stat-label,
+.theme-page .theme-cta-description {
+  color: var(--muted);
+}
+
+.theme-page .theme-service-price {
+  background: var(--surface-2);
+  color: var(--brass);
+  border: 1px solid var(--brass-line);
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-page .theme-link-icon,
+.theme-page .theme-booking-icon {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s var(--ease);
+}
+
+.theme-page .theme-link-icon svg,
+.theme-page .theme-booking-icon svg,
+.theme-page .theme-booking-feature svg {
+  color: var(--brass);
+}
+
+.theme-page .theme-link-block:hover .theme-link-icon {
+  border-color: var(--brass-line);
+}
+
+/* Magnetic Diagonal Arrow Micro-Interaction */
+.theme-page .theme-link-arrow {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.theme-page .theme-link-arrow svg {
+  color: var(--ink-2);
+  transition: transform 0.28s var(--ease), color 0.25s var(--ease);
+}
+
+.theme-page .theme-link-block:hover .theme-link-arrow {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.theme-page .theme-link-block:hover .theme-link-arrow svg {
+  color: #0b0b0a;
+  transform: translate(2px, -2px);
+}
+
+.theme-page .theme-testimonial-quote {
+  color: var(--ink-2);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.theme-page .theme-testimonial-footer,
+.theme-page .theme-proof-badges {
+  border-top-color: var(--line);
+}
+
+/* ==========================================================================
+   7. BUTTONS (Tactile Ivory to Burnished Brass Inversion)
+   ========================================================================== */
+
+.theme-page .theme-project-button-primary,
+.theme-page .theme-form-submit,
+.theme-page .theme-qr-download-button,
+.theme-page .theme-booking-button-primary,
+.theme-page .theme-cta-button {
+  background: var(--ink);
+  color: #0b0b0a;
+  border: 1px solid var(--ink);
+  border-radius: var(--r-md);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: transform 0.22s var(--ease), background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.theme-page .theme-project-button-primary:hover,
+.theme-page .theme-form-submit:hover:not(:disabled),
+.theme-page .theme-qr-download-button:hover,
+.theme-page .theme-booking-button-primary:hover,
+.theme-page .theme-cta-button:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #0b0b0a;
+  transform: translateY(-2px);
+}
+
+.theme-page .theme-project-button-primary:active,
+.theme-page .theme-form-submit:active,
+.theme-page .theme-qr-download-button:active,
+.theme-page .theme-booking-button-primary:active,
+.theme-page .theme-cta-button:active {
+  transform: scale(0.985);
+}
+
+.theme-page .theme-project-button-secondary,
+.theme-page .theme-booking-button-secondary {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.theme-page .theme-project-button-secondary:hover,
+.theme-page .theme-booking-button-secondary:hover {
+  background: var(--surface-3);
+  border-color: var(--line-hover);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   8. CONTACT FORM, QR & METRICS
+   ========================================================================== */
+
+.theme-page .theme-form-input,
+.theme-page .theme-form-textarea,
+.theme-page .theme-form-select {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  color: var(--ink);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.theme-page .theme-form-input:focus,
+.theme-page .theme-form-textarea:focus,
+.theme-page .theme-form-select:focus {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 3px var(--brass-soft);
+}
+
+.theme-page .theme-form-alert-success {
+  background: var(--sage-soft);
+  border-color: var(--sage-line);
+  color: var(--sage);
+}
+
+.theme-page .theme-qr-image-wrapper {
+  background: #ffffff;
+  border: 4px solid var(--surface-2);
+  border-radius: 14px;
+}
+
+.theme-page .theme-stat-item {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.35rem 2.25rem;
+  min-width: 185px;
+  box-shadow: var(--top-highlight);
+}
+
+.theme-page .theme-stat-number {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
+
+.theme-page .theme-stats-title svg,
+.theme-page .theme-cta-title svg,
+.theme-page .theme-qr-title svg {
+  color: var(--brass);
+}
+
+/* ==========================================================================
+   9. RESPONSIVE FULL-SCREEN BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .theme-page .theme-container {
+    padding: 3rem 2rem 6rem;
+    gap: 3rem;
+  }
+
+  .theme-page .theme-links-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Desktop Horizontal Studio Hero (Breaks the generic centered-card mold) */
+@media (min-width: 900px) {
+  .theme-page .theme-profile-section {
+    padding: 2.25rem 2.5rem 2.5rem;
+    text-align: left;
+    align-items: stretch;
+  }
+
+  .theme-page .theme-profile-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .theme-page .theme-profile-image {
+    width: 136px;
+    height: 136px;
+  }
+
+  .theme-page .theme-meta-row,
+  .theme-page .theme-badges-container,
+  .theme-page .theme-social-icons {
+    justify-content: flex-start;
+  }
+
+  .theme-page .theme-username {
+    font-size: 2.85rem;
+  }
+}
