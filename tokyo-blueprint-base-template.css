@@ -1,0 +1,344 @@
+/* ==========================================================================
+   INDIELINK TEMPLATE 02 — TOKYO BLUEPRINT (Architectural Editorial)
+   Theme: MINIMAL (Custom CSS Playground)
+   100% Sanitizer-Safe · Zero External Assets · Full-Screen Responsive
+   ========================================================================== */
+
+.theme-page {
+  --paper: #f5f0e6;
+  --card: #fffdf9;
+  --ink: #111318;
+  --ink-soft: #4b5563;
+  --cobalt: #1d4ed8;
+  --vermilion: #e11d48;
+  --grid-line: rgba(29, 78, 216, 0.065);
+
+  width: 100%;
+  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.theme-page .theme-container {
+  max-width: 1180px;
+  width: 100%;
+  padding: 2.25rem 1.25rem 5rem;
+  gap: 2.5rem;
+  background: transparent;
+}
+
+/* ---------- ARCHITECTURAL PAPER CARDS ---------- */
+.theme-page .theme-profile-section,
+.theme-page .theme-about-section,
+.theme-page .theme-video-section,
+.theme-page .theme-skill-card,
+.theme-page .theme-career-card,
+.theme-page .theme-project-card,
+.theme-page .theme-service-card,
+.theme-page .theme-link-block,
+.theme-page .theme-testimonial-card,
+.theme-page .theme-proof-section,
+.theme-page .theme-contact-section,
+.theme-page .theme-qr-card,
+.theme-page .theme-booking-card,
+.theme-page .theme-stats-section,
+.theme-page .theme-cta-section {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 5px 5px 0px var(--ink);
+  color: var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.theme-page .theme-skill-card:hover,
+.theme-page .theme-career-card:hover,
+.theme-page .theme-project-card:hover,
+.theme-page .theme-service-card:hover,
+.theme-page .theme-link-block:hover,
+.theme-page .theme-testimonial-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--cobalt);
+  border-color: var(--ink);
+}
+
+/* ---------- HERO SECTION ---------- */
+.theme-page .theme-profile-section {
+  padding: 2rem;
+  border-top: 8px solid var(--cobalt);
+}
+
+.theme-page .theme-background-image {
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+  height: 210px;
+}
+
+.theme-page .theme-profile-image {
+  border-radius: 4px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0px var(--vermilion);
+}
+
+.theme-page .theme-verified-badge {
+  border-radius: 4px;
+  background: var(--cobalt);
+  border: 2px solid var(--ink);
+}
+
+.theme-page .theme-availability-pill {
+  border-radius: 2px;
+  background: #fff1f2;
+  color: var(--vermilion);
+  border: 2px solid var(--vermilion);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.theme-page .theme-username {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.theme-page .theme-headline {
+  color: var(--cobalt);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.theme-page .theme-badge {
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.theme-page .theme-resume-button {
+  border-radius: 2px;
+  background: var(--cobalt);
+  color: #ffffff;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0px var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+}
+
+.theme-page .theme-social-icon {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+}
+
+.theme-page .theme-social-icon svg {
+  color: var(--ink);
+}
+
+.theme-page .theme-social-icon:hover {
+  background: var(--cobalt);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px var(--ink);
+}
+
+/* ---------- SECTION TITLES ---------- */
+.theme-page .theme-section-title {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.35rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--ink);
+  width: fit-content;
+}
+
+.theme-page .theme-section-icon svg {
+  color: var(--vermilion);
+}
+
+/* ---------- SKILLS & CAREER TREE ---------- */
+.theme-page .theme-skill-category {
+  color: var(--cobalt);
+  border-bottom: 1.5px dashed rgba(17, 19, 24, 0.25);
+  padding-bottom: 0.45rem;
+}
+
+.theme-page .theme-skill-chip {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-size: 0.74rem;
+}
+
+.theme-page .theme-career-tree::before {
+  background: var(--ink);
+  width: 2px;
+}
+
+.theme-page .theme-career-node {
+  border-radius: 2px;
+  background: var(--vermilion);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0px var(--ink);
+}
+
+.theme-page .theme-career-date {
+  color: var(--cobalt);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.theme-page .theme-career-type {
+  border-radius: 2px;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.theme-page .theme-career-current {
+  border-radius: 2px;
+  background: var(--vermilion);
+  color: #ffffff;
+}
+
+.theme-page .theme-career-org-link {
+  color: var(--cobalt);
+}
+
+/* ---------- PROJECTS, SERVICES & BUTTONS ---------- */
+.theme-page .theme-project-image {
+  border-bottom: 2px solid var(--ink);
+}
+
+.theme-page .theme-project-status {
+  border-radius: 2px;
+  background: var(--cobalt);
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.theme-page .theme-service-featured {
+  background: #eff6ff;
+  border-color: var(--cobalt);
+  box-shadow: 6px 6px 0px var(--cobalt);
+}
+
+.theme-page .theme-service-price {
+  border-radius: 2px;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.theme-page .theme-project-button-primary,
+.theme-page .theme-form-submit,
+.theme-page .theme-qr-download-button,
+.theme-page .theme-booking-button-primary,
+.theme-page .theme-cta-button {
+  border-radius: 2px;
+  background: var(--ink);
+  color: #ffffff;
+  border: 2px solid var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+.theme-page .theme-project-button-primary:hover,
+.theme-page .theme-form-submit:hover,
+.theme-page .theme-qr-download-button:hover,
+.theme-page .theme-booking-button-primary:hover,
+.theme-page .theme-cta-button:hover {
+  background: var(--cobalt);
+  border-color: var(--ink);
+}
+
+.theme-page .theme-project-button-secondary,
+.theme-page .theme-booking-button-secondary {
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.theme-page .theme-link-icon,
+.theme-page .theme-booking-icon {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+}
+
+.theme-page .theme-link-icon svg,
+.theme-page .theme-booking-icon svg {
+  color: var(--cobalt);
+}
+
+.theme-page .theme-link-arrow {
+  border-radius: 2px;
+  background: var(--ink);
+}
+
+.theme-page .theme-link-arrow svg {
+  color: #ffffff;
+}
+
+/* ---------- FORM, QR & STATS ---------- */
+.theme-page .theme-form-input,
+.theme-page .theme-form-textarea,
+.theme-page .theme-form-select {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+.theme-page .theme-form-input:focus,
+.theme-page .theme-form-textarea:focus,
+.theme-page .theme-form-select:focus {
+  background: #ffffff;
+  border-color: var(--cobalt);
+  box-shadow: 3px 3px 0px var(--cobalt);
+}
+
+.theme-page .theme-qr-image-wrapper {
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+}
+
+.theme-page .theme-stat-item {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  padding: 1rem 2rem;
+  min-width: 170px;
+}
+
+.theme-page .theme-stat-number {
+  color: var(--cobalt);
+}
+
+/* ---------- RESPONSIVE FULL-SCREEN ---------- */
+@media (min-width: 768px) {
+  .theme-page .theme-container {
+    padding: 3rem 2rem 5.5rem;
+  }
+
+  .theme-page .theme-links-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-page .theme-username {
+    font-size: 3.25rem;
+  }
+}
